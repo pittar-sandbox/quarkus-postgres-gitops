@@ -1,0 +1,4 @@
+resources:
+  - quarkus-deploy.yaml
+  - quarkus-svc.yaml
+  - quarkus-route.yaml

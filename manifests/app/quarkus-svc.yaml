@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: quarkus-postgres
+    app.kubernetes.io/component: quarkus-postgres
+    app.kubernetes.io/instance: quarkus-postgres
+    app.kubernetes.io/name: quarkus-postgres
+    app.kubernetes.io/part-of: quarkus-postgres
+    app.openshift.io/runtime: java
+    app.openshift.io/runtime-version: openjdk-17-ubi8
+  name: quarkus-postgres
+spec:
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  - name: 8443-tcp
+    port: 8443
+    protocol: TCP
+    targetPort: 8443
+  selector:
+    app: quarkus-postgres
+    deployment: quarkus-postgres
+  sessionAffinity: None
+  type: ClusterIP
+
